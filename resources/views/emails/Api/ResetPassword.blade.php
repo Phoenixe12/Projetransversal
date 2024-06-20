@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Reset - WholeOrder</title>
+    <title>Password Reset - Biobanque</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,7 +67,7 @@
 </head>
 <body>
     <header>
-        <h1>WholeOrder</h1>
+        <h1>Biobanque</h1>
     </header>
     <div class="container">
         <h2>Password Reset</h2>
@@ -76,7 +76,7 @@
         <p class="footer">If you didn't request this password reset, you can safely ignore this email.</p>
     </div>
     <footer>
-        <p>&copy; 2024 WholeOrder. All rights reserved.</p>
+        <p>&copy; 2024 Biobanque. All rights reserved.</p>
     </footer>
 </body>
 </html>

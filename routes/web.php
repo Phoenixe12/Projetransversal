@@ -47,7 +47,7 @@ Route::middleware(['auth', 'user-role:editor',InfoEntreprisesMiddleware::class,C
 
 
 
-// Fournisseur Route
+// 
 Route::middleware(['auth', 'user-role:admin'])->group(function()
 {
  Route::get("/admin/home", [HomeController::class, 'adminHome'])->name('home.admin');
