@@ -30,7 +30,7 @@ class EntrepriseMail extends Mailable
      */
     public function build()
     {
-      return  $this->subject('Authentication')->view('Admin.Entreprise.email');
+      return  $this->subject('Authentication')->view('Admin.Compte.email');
     }
 
 

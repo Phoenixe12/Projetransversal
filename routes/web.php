@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CompteController;
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\EntrepriseController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Entreprise\AccueilController;
@@ -58,10 +60,16 @@ Route::middleware(['auth', 'user-role:admin'])->group(function()
  Route::put('/User/Profil', [ProfileController::class, 'userInformation'])->name('user-profile-information.update');
  Route::put('/Password', [ProfileController::class, 'updatePassword'])->name('user-password.update');
 
- Route::resource("/Gestion+Entreprise",EntrepriseController::class);
- Route::get('/Gestion+Entreprise/edit/{id}', [EntrepriseController::class, 'edit'])->name('gestionEntreprise.edit');
- Route::put('/Entreprise+Produit', [EntrepriseController::class, 'update'])->name('update-Entreprise');
- Route::delete("/delete+Entreprise", [EntrepriseController::class, 'destroy'])->name('delete-Entreprise');
+ Route::resource("/Gestion+Compte",CompteController::class);
+ Route::get('/Gestion+Compte/edit/{id}', [CompteController::class, 'edit'])->name('gestionCompte.edit');
+ Route::put('/Compte+Produit', [CompteController::class, 'update'])->name('update-Compte');
+ Route::delete("/delete+Compte", [CompteController::class, 'destroy'])->name('delete-Compte');
+
+
+ Route::resource('/Gestion+Country', CountryController::class);
+    Route::get('/Gestion+Country/edit/{id}', [CountryController::class, 'edit'])->name('gestionCountry.edit');
+    Route::put('/update+Country', [CountryController::class, 'update'])->name('update-Country');
+    Route::delete("/delete+Country", [CountryController::class, 'destroy'])->name('delete-Country');
 
 });
 
@@ -78,5 +86,7 @@ Route::middleware(['auth'])->group(function () {
     //Entreprise
     Route::get("/Entreprise/code", [InformationEntrepriseController::class, 'index'])->name('Entreprise.code');
     Route::post("/Entreprise/store", [InformationEntrepriseController::class, 'store'])->name('Entreprise.store');
+
+
 
 });

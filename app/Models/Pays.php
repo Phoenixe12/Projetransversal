@@ -11,5 +11,6 @@ class Pays extends Model
     protected $fillable = [
         'nomPays',
         'flags',
+        'codePays',
     ];
 }

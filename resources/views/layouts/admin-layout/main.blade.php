@@ -8,8 +8,7 @@
                 <img src="{{ asset('assetss/dist/img/logo/logo.png') }}" alt="">
             </div>
             <div class="col-10">
-                <span class="fs-6 d-lg-block">Biobanque</span><span class=""
-                    style="font-size:12px; font-weight:none;">Administrateur</span>
+                <span class="fs-6 d-lg-block">Biobanque </span><span class="" style="font-size:12px; font-weight:none;">Administrateur</span>
             </div>
         </a>
 
@@ -48,11 +47,9 @@
 
 
                     @if (empty(auth()->user()->images))
-                        <img src="{{ asset('assetss/dist/img/logo/logo.png') }}" alt="Profile" class="rounded-circle"
-                            width="50" height="50">
+                    <img src="{{ asset('assetss/dist/img/logo/logo.png') }}" alt="Profile" class="rounded-circle" width="50" height="50">
                     @else
-                        <img src="{{ asset('img/' . auth()->user()->images) }}" alt="Profile" class="rounded-circle"
-                            width="50" height="50">
+                    <img src="{{ asset('img/' . auth()->user()->images) }}" alt="Profile" class="rounded-circle" width="50" height="50">
                     @endif
                     <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
                 </a><!-- End Profile Iamge Icon -->
@@ -60,7 +57,7 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
                         <h6>{{ auth()->user()->name }}</h6>
-                        <span>Administrateur</span>
+                        <span>Admin</span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -72,6 +69,7 @@
                             <span>Profile</span>
                         </a>
                     </li>
+
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -86,16 +84,13 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right"></i> Se
-                                déconnecter</a>
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right"></i> Se
+                            déconnecter</a>
                     </li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                         @csrf
                     </form>
             </li>
-
-
 
         </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
@@ -117,10 +112,16 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
-
-
-
-
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-archive"></i><span>Entreprise</span>
+            </a>
+        </li><!-- End Facture Nav -->
+        <li>
+            <a class="nav-link collapsed" href="{{ route('Gestion+Country.index') }}">
+                <i class="bi bi-flag"></i><span>Pays</span>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('Gestion+Profil.index') }}">
@@ -129,8 +130,8 @@
 
         </li><!-- End Messagerie Nav -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('Gestion+Entreprise.index') }}">
-                <i class="bi bi-building-add"></i><span>Entreprise</span>
+            <a class="nav-link collapsed" href="{{ route('Gestion+Compte.index') }}">
+                <i class="bi bi-building-add"></i><span>Compte</span>
             </a>
 
         </li><!-- End Messagerie Nav -->
@@ -143,14 +144,13 @@
 
 
         <li class="nav-item">
-            <a class="nav-link collapsed text-danger" href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="bi bi-box-arrow-right text-danger"></i> Se
-                    déconnecter</a>
+            <a class="nav-link collapsed text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="bi bi-box-arrow-right text-danger"></i> Se
+                déconnecter</a>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
-            @csrf
-        </form>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                @csrf
+            </form>
 
 
         </li><!-- End Messagerie Nav -->
