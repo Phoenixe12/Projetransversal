@@ -33,6 +33,6 @@ class HomeController extends Controller
 
     public function adminHome()
     {
-        return view('home',["msg"=>"I am admin role"]);
+        return view('Admin.index');
     }
 }

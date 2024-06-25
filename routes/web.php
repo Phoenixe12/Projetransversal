@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\EntrepriseController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Entreprise\AccueilController;
 use App\Http\Controllers\Entreprise\CommandeEntrepriseController;
 use App\Http\Controllers\Fournisseur\CommandeFournisseurController;
@@ -47,10 +49,19 @@ Route::middleware(['auth', 'user-role:editor',InfoEntreprisesMiddleware::class,C
 
 
 
-// 
+//
 Route::middleware(['auth', 'user-role:admin'])->group(function()
 {
  Route::get("/admin/home", [HomeController::class, 'adminHome'])->name('home.admin');
+ Route::resource("/Gestion+Profil",ProfileController::class);
+ Route::put('/Profil', [ProfileController::class, 'update'])->name('update-profile');
+ Route::put('/User/Profil', [ProfileController::class, 'userInformation'])->name('user-profile-information.update');
+ Route::put('/Password', [ProfileController::class, 'updatePassword'])->name('user-password.update');
+
+ Route::resource("/Gestion+Entreprise",EntrepriseController::class);
+ Route::get('/Gestion+Entreprise/edit/{id}', [EntrepriseController::class, 'edit'])->name('gestionEntreprise.edit');
+ Route::put('/Entreprise+Produit', [EntrepriseController::class, 'update'])->name('update-Entreprise');
+ Route::delete("/delete+Entreprise", [EntrepriseController::class, 'destroy'])->name('delete-Entreprise');
 
 });
 
