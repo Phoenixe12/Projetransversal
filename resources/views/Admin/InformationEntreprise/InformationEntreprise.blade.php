@@ -68,14 +68,15 @@
     </script>
     <script>
         function documentPdf(value, row, index) {
-            if (row.documentPdf) {
-                // Si l'image existe, retournez l'élément img avec le chemin de l'image spécifié
-                return '<img src="documentPdf/' + row.documentPdf + '" alt=""  height="75" width="75"></img>';
-            } else {
-                // Si l'image n'existe pas, retournez un élément img avec un chemin par défaut
-                return '<img src="assets/dist/img/logo/logo.png" alt=""  height="75" width="75"></img>';
-            }
-        };
+    if (row.documentPdf) {
+        // Si le document PDF existe, affichez une image avec un lien vers le document
+        return '<a href="documentPdf/' + row.documentPdf + '" target="_blank"><img src="assets/dist/img/logo/biopdf.png"" alt="" height="75" width="75"></a>';
+    } else {
+        // Si le document PDF n'existe pas, affichez une image par défaut
+        return '<img src="assets/dist/img/logo/logo.png" alt="" height="75" width="75"></img>';
+    }
+};
+
 
 
     </script>
