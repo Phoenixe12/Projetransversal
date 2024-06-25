@@ -113,10 +113,15 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
+            <a class="nav-link collapsed" href="{{ route('Information+Entreprise.index') }}">
                 <i class="bi bi-archive"></i><span>Entreprise</span>
             </a>
         </li><!-- End Facture Nav -->
+        <li>
+            <a class="nav-link collapsed" href="{{ route('Gestion+Country.index') }}">
+                <i class="bi bi-flag"></i><span>Pays</span>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('Gestion+Profil.index') }}">
@@ -124,12 +129,6 @@
             </a>
 
         </li><!-- End Messagerie Nav -->
-        <li>
-            <a class="nav-link collapsed" href="{{ route('Gestion+Country.index') }}">
-                <i class="bi bi-flag"></i><span>Pays</span>
-            </a>
-        </li>
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('Gestion+Compte.index') }}">
                 <i class="bi bi-building-add"></i><span>Compte</span>

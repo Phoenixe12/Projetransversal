@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CompteController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\EntrepriseController;
+use App\Http\Controllers\Admin\ListeEntrepriseController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Entreprise\AccueilController;
 use App\Http\Controllers\Entreprise\CommandeEntrepriseController;
@@ -70,6 +71,9 @@ Route::middleware(['auth', 'user-role:admin'])->group(function()
     Route::get('/Gestion+Country/edit/{id}', [CountryController::class, 'edit'])->name('gestionCountry.edit');
     Route::put('/update+Country', [CountryController::class, 'update'])->name('update-Country');
     Route::delete("/delete+Country", [CountryController::class, 'destroy'])->name('delete-Country');
+
+
+    Route::resource('/Information+Entreprise', ListeEntrepriseController::class);
 
 });
 
