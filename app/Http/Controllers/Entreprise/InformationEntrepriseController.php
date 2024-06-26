@@ -41,8 +41,7 @@ class InformationEntrepriseController extends Controller
             try {
                 // Validation des données reçues dans la requête
                 $request->validate([
-                    'nomCommercial' => 'string',
-                    'nomEntreprise' => 'nullable|string',
+                    'nomOrganisation' => 'string',
                     'codePays' => 'string',
                     'telephone' => 'string',
                     'nomPays' => 'string',
@@ -61,6 +60,7 @@ class InformationEntrepriseController extends Controller
                 $informationEntreprise->nomPays = $request->input('nomPays');
                 $informationEntreprise->adresse = $request->input('adresse');
                 $informationEntreprise->idUser = $request->input('idUser');
+
                 if ($request->hasFile('documentPdf')) {
                     $file = $request->file('documentPdf');
                     $extension = $file->getClientOriginalExtension();
@@ -68,7 +68,7 @@ class InformationEntrepriseController extends Controller
                     $file->move('documentPdf/', $filename);
                     $informationEntreprise->documentPdf = $filename;
                 }
-             
+
                 $informationEntreprise->save();
 
                 // Réponse de

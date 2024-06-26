@@ -86,6 +86,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/verification/verify', [VerificationOptController::class, 'verifyCode'])->name('verification.verify');
     Route::post('/resendOTP', [VerificationOptController::class, 'resendOTP'])->name('resendOTP');
 
+     
 
     //Entreprise
     Route::get("/Entreprise/code", [InformationEntrepriseController::class, 'index'])->name('Entreprise.code');

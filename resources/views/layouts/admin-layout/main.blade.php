@@ -29,15 +29,6 @@
                     <i class="bi bi-search"></i>
                 </a>
             </li><!-- End Search Icon-->
-            <li class="nav-item dropdown">
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                    <i class="bi bi-bell"></i>
-                    <span class="badge bg-primary badge-number">4</span>
-                </a><!-- End Notification Icon -->
-
-
-
-            </li><!-- End Notification Nav -->
 
 
 
@@ -114,7 +105,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('Information+Entreprise.index') }}">
-                <i class="bi bi-archive"></i><span>Entreprise</span>
+                <i class="bi bi-archive"></i><span>Organisation</span>
             </a>
         </li><!-- End Facture Nav -->
         <li>
@@ -135,12 +126,7 @@
             </a>
 
         </li><!-- End Messagerie Nav -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-question-circle"></i><span>Aide support</span>
-            </a>
 
-        </li><!-- End Messagerie Nav -->
 
 
         <li class="nav-item">
