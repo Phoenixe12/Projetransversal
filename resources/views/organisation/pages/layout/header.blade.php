@@ -178,7 +178,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('home.admin') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard </p>
+                                        <p>Les échantillons</p>
                                     </a>
                                 </li>
 
@@ -198,7 +198,7 @@
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Gestion Stations</p>
+                                        <p></p>
                                     </a>
                                 </li>
 

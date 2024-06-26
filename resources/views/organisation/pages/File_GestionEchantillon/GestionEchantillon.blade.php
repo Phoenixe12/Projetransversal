@@ -56,7 +56,6 @@
                                 <th data-field="DesignationStation" data-sortable="true">Désignation</th>
                                 <th data-field="LocalisationStation" data-sortable="true">Localisation</th>
                                 <th data-field="ContactStation" data-sortable="true">Contacts</th>
-                                <th data-formatter="actionFormatter" data-events="actionEvents">Action</th>
                             </tr>
                         </thead>
                     </table>
@@ -71,9 +70,7 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    @include('organisation.pages.File_GestionDonnee.deleteGestionDonnee')
-    @include('organisation.pages.File_GestionDonnee.editGestionDonnee')
-    @include('organisation.pages.File_GestionDonnee.addGestionDonnee')
+
 @endsection
 
 <!-- Modal-->
@@ -81,49 +78,12 @@
 
 
 @section('script')
-    <script>
-        function actionFormatter(value, row, index) {
-            return [
-                '<a class="editGestionSation" style="color:blue" href="javascript:void(0)" title="Modifier">',
-                '<i class="fas fa-edit" aria-hidden="true"></i>',
-                '</a>',
-                '&nbsp;&nbsp;', // Ajout d'un espace supplémentaire
-                '<a class="deleteGestionSation" style="color:red" href="javascript:void(0)" title="Supprimer">',
-                '<i class="fas fa-trash" aria-hidden="true"></i>',
-                '</a>'
-            ].join('');
-        }
 
-        window.actionEvents = {
-            'click .editGestionSation': function(e, value, row, index) {
-                var id = row.id;
-                $('#ModalEdit').modal('show');
-                $.ajax({
-                    type: "GET",
-                    url: "{{ route('gestionstation.edit', ['id' => ':id']) }}".replace(':id', id),
-                    success: function(response) {
-                        console.log(response);
-                        $('#CodeStation').val(response.Station.CodeStation);
-                        $('#DesignationStation').val(response.Station.DesignationStation);
-                        $('#LocalisationStation').val(response.Station.LocalisationStation);
-                        $('#ContactStation').val(response.Station.ContactStation);
-                        $('#id').val(response.Station.id);
-                    }
-                });
-            },
-
-            'click .deleteGestionSation': function(e, value, row, index) {
-                var id = row.id;
-                $('#ModalDelete').modal('show');
-                $('#deleteing_id').val(id);
-            }
-        };
-    </script>
 
     <script>
         // your custom ajax request here
         function ajaxRequest(params) {
-            var url = '{{ route('Gestion+Station.create') }}'
+            var url = '{{ route('Gestion+Echantillon.create') }}'
             $.get(url + '?' + $.param(params.data)).then(function(res) {
                 params.success(res)
             })

@@ -38,9 +38,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <a id="btnModalFormUtilisateur" href="#modalFormUtilisateur" class="btn btn-cronos text-white add"
-                        data-toggle="modal" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus-circle"></i>
-                        <span>Ajouter un utilisateur</span></a>
+                  
 
                     <table class="table table-striped table-bordered table-hover"
                         data-toolbar="#btnModalFormGestionCiternes" id="table" data-toggle="table"
@@ -71,9 +69,7 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    @include('Admin.pages.File_Utilisateurs.deleteUtilisateur')
-    @include('Admin.pages.File_Utilisateurs.editUtilisateur')
-    @include('Admin.pages.File_Utilisateurs.addUtilisateur')
+    @include('organisation.pages.File_Utilisateurs.editUtilisateur')
 @endsection
 
 <!-- Modal-->
@@ -86,10 +82,6 @@
             return [
                 '<a class="editUtilisateur" style="color:blue" href="javascript:void(0)" title="Modifier">',
                 '<i class="fas fa-edit" aria-hidden="true"></i>',
-                '</a>',
-                ' &nbsp &nbsp',
-                '<a class="deleteUtilisateur" style="color:red" href="javascript:void(0)" title="Supprimer">',
-                '<i class="fas fa-trash" aria-hidden="true"></i>',
                 '</a>'
 
             ].join('');
