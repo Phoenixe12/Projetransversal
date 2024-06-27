@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('organisation/dist/css/code.ionicframework.min.css') }}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
     <link rel="stylesheet"
         href="{{ asset('organisation/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
@@ -178,7 +180,15 @@
                             </a>
 
                         </li>
+                         <li class="nav-item">
+                            <a href="{{ route('Gestion+BioBanque+Organisation.index') }}" class="nav-link ">
+                               <i class="nav-icon fas fa-folder"></i>
+                                <p>
+                                  Biobanque
+                                </p>
+                            </a>
 
+                        </li>
                         <!--Fin de   -->
                         <li class="nav-header"></li>
                         {{--

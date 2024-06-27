@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BioBanque;
 use App\Models\Echantillon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,8 @@ class EchantillonController extends Controller
      */
     public function index()
     {
-        return view('organisation.pages.File_GestionDonnee.GestionDonnee');
+        $biobanques = BioBanque::all();
+        return view('organisation.pages.File_GestionDonnee.GestionDonnee',compact('biobanques'));
     }
 
 
@@ -27,61 +29,102 @@ class EchantillonController extends Controller
         $user = Auth::user();
 
         $result = DB::table('echantillons')
-            ->select(
-                'echantillons.id',
-                'echantillons.numeroIdentification',
-                'echantillons.datePrelevement',
-                'echantillons.nomPatient',
-                'echantillons.typeEchantillon',
-                'echantillons.quantiteVolume',
-                'echantillons.methodePrelevement',
-                'echantillons.conditionsPrelevement',
-                'echantillons.nomPreleveur',
-                'echantillons.qualificationsPreleveur',
-                'echantillons.temperatureConservation',
-                'echantillons.tempsTransport',
-                'echantillons.traitementPrealable',
-                'echantillons.contexteClinique',
-                'echantillons.traitementsEnCours',
-                'echantillons.antecedentsMedicaux',
-                'echantillons.analysesDemandees',
-                'echantillons.prioriteUrgence'
-            )
-            ->where('echantillons.idUser', '=', $user->id)
-            ->get();
+        ->select(
+            'echantillons.id',
+            'echantillons.numeroIdentification',
+            'echantillons.datePrelevement',
+            'echantillons.nomPatient',
+            'echantillons.typeEchantillon',
+            'echantillons.quantiteVolume',
+            'echantillons.methodePrelevement',
+            'echantillons.conditionsPrelevement',
+            'echantillons.nomPreleveur',
+            'echantillons.qualificationsPreleveur',
+            'echantillons.idBiobanque',
+            'echantillons.temperatureConservation',
+            'echantillons.tempsTransport',
+            'echantillons.traitementPrealable',
+            'echantillons.contexteClinique',
+            'echantillons.traitementsEnCours',
+            'echantillons.antecedentsMedicaux',
+            'echantillons.analysesDemandees',
+            'echantillons.prioriteUrgence',
+            'biobanques.nom AS nomBiobanque',
+            'biobanques.adresseRue',
+            'biobanques.codePostal',
+            'biobanques.ville',
+            'biobanques.region',
+            'biobanques.pays',
+            'biobanques.latitude',
+            'biobanques.longitude',
+            'biobanques.etage',
+            'biobanques.etablissementHote',
+            'biobanques.contactNom',
+            'biobanques.contactFonction',
+            'biobanques.contactTelephone',
+            'biobanques.contactEmail',
+            'biobanques.horairesOuverture',
+            'biobanques.informationsAcces',
+            'biobanques.siteWeb',
+            'biobanques.informationsSupplementaires'
+        )
+        ->join('biobanques', 'echantillons.idBiobanque', '=', 'biobanques.id')
+        ->where('echantillons.idUser', '=', $user->id)
+        ->get();
+
+
 
         return response()->json($result);
     }
 
     public function getAll()
     {
-        $user = Auth::user();
 
         $result = DB::table('echantillons')
-            ->select(
-                'echantillons.id',
-                'echantillons.numeroIdentification',
-                'echantillons.datePrelevement',
-                'echantillons.nomPatient',
-                'echantillons.typeEchantillon',
-                'echantillons.quantiteVolume',
-                'echantillons.methodePrelevement',
-                'echantillons.conditionsPrelevement',
-                'echantillons.nomPreleveur',
-                'echantillons.qualificationsPreleveur',
-                'echantillons.temperatureConservation',
-                'echantillons.tempsTransport',
-                'echantillons.traitementPrealable',
-                'echantillons.contexteClinique',
-                'echantillons.traitementsEnCours',
-                'echantillons.antecedentsMedicaux',
-                'echantillons.analysesDemandees',
-                'echantillons.prioriteUrgence'
-            )
+        ->select(
+            'echantillons.id',
+            'echantillons.numeroIdentification',
+            'echantillons.datePrelevement',
+            'echantillons.nomPatient',
+            'echantillons.typeEchantillon',
+            'echantillons.quantiteVolume',
+            'echantillons.methodePrelevement',
+            'echantillons.conditionsPrelevement',
+            'echantillons.nomPreleveur',
+            'echantillons.qualificationsPreleveur',
+            'echantillons.idBiobanque',
+            'echantillons.temperatureConservation',
+            'echantillons.tempsTransport',
+            'echantillons.traitementPrealable',
+            'echantillons.contexteClinique',
+            'echantillons.traitementsEnCours',
+            'echantillons.antecedentsMedicaux',
+            'echantillons.analysesDemandees',
+            'echantillons.prioriteUrgence',
+            'biobanques.nom AS nomBiobanque',
+            'biobanques.adresseRue',
+            'biobanques.codePostal',
+            'biobanques.ville',
+            'biobanques.region',
+            'biobanques.pays',
+            'biobanques.latitude',
+            'biobanques.longitude',
+            'biobanques.etage',
+            'biobanques.etablissementHote',
+            'biobanques.contactNom',
+            'biobanques.contactFonction',
+            'biobanques.contactTelephone',
+            'biobanques.contactEmail',
+            'biobanques.horairesOuverture',
+            'biobanques.informationsAcces',
+            'biobanques.siteWeb',
+            'biobanques.informationsSupplementaires'
+        )
+    ->join('biobanques', 'echantillons.idBiobanque', '=', 'biobanques.id')
+    ->get();
 
-            ->get();
+return response()->json($result);
 
-        return response()->json($result);
     }
     /**
      * Store a newly created resource in storage.
@@ -96,6 +139,7 @@ class EchantillonController extends Controller
             $echantillon->numeroIdentification = 'ID-' . strtoupper(uniqid());
             $echantillon->datePrelevement = $request->input('datePrelevement');
             $echantillon->nomPatient = $request->input('nomPatient');
+            $echantillon->idBiobanque = $request->input('idBiobanque');
             $echantillon->typeEchantillon = $request->input('typeEchantillon');
             $echantillon->quantiteVolume = $request->input('quantiteVolume');
             $echantillon->methodePrelevement = $request->input('methodePrelevement');
@@ -157,6 +201,7 @@ class EchantillonController extends Controller
             $echantillon->numeroIdentification = 'ID-' . strtoupper(uniqid());
             $echantillon->datePrelevement = $request->input('datePrelevement');
             $echantillon->nomPatient = $request->input('nomPatient');
+            $echantillon->idBiobanque = $request->input('idBiobanque');
             $echantillon->typeEchantillon = $request->input('typeEchantillon');
             $echantillon->quantiteVolume = $request->input('quantiteVolume');
             $echantillon->methodePrelevement = $request->input('methodePrelevement');

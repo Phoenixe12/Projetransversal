@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\EntrepriseController;
 use App\Http\Controllers\Admin\ListeEntrepriseController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\BioBanqueOrganisationController;
 use App\Http\Controllers\EchantillonController;
 use App\Http\Controllers\Entreprise\AccueilController;
 use App\Http\Controllers\Entreprise\CommandeEntrepriseController;
@@ -55,6 +56,8 @@ Route::middleware(['auth', 'user-role:editor', InfoEntreprisesMiddleware::class,
     Route::get('/Gestion+Echantillon/edit/{id}', [EchantillonController::class, 'edit'])->name('gestionEchantillon.edit');
     Route::put('/update+Echantillon', [EchantillonController::class, 'update'])->name('update-Echantillon');
     Route::delete("/delete+Echantillon", [EchantillonController::class, 'destroy'])->name('delete-Echantillon');
+
+    Route::resource('/Gestion+BioBanque+Organisation', BioBanqueOrganisationController::class);
 });
 
 

@@ -55,6 +55,7 @@
                         <thead>
                             <tr>
                                 <th data-field="numeroIdentification" data-sortable="true">Numéro Identification</th>
+                                <th data-field="nomBiobanque" data-sortable="true">Nom de la Biobanque</th>
                                 <th data-field="datePrelevement" data-sortable="true">Date Prélèvement</th>
                                 <th data-field="nomPatient" data-sortable="true">Nom Patient</th>
                                 <th data-field="typeEchantillon" data-sortable="true">Type Échantillon</th>
@@ -101,6 +102,7 @@
             ].join('');
         }
 
+
         window.actionEvents = {
             'click .editGestionSation': function(e, value, row, index) {
                 var id = row.id;
@@ -128,6 +130,7 @@
                         $('#antecedentsMedicaux').val(response.Echantillon.antecedentsMedicaux);
                         $('#analysesDemandees').val(response.Echantillon.analysesDemandees);
                         $('#prioriteUrgence').val(response.Echantillon.prioriteUrgence);
+                        $('#idBiobanque').val(response.Echantillon.idBiobanque);
                         $('#id').val(response.Echantillon.id);
 
                     }
@@ -152,8 +155,11 @@
             html.push('<p><b>Analyses Demandées : </b> ' + row.analysesDemandees + '</p>')
             html.push('<p><b>Priorité/Urgence : </b> ' + row.prioriteUrgence + '</p>')
 
+
             return html.join('');
-        }
+        };
+
+
     </script>
 
     <script>

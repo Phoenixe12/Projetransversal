@@ -12,10 +12,22 @@
                     <div class="container">
                         <div class="row">
 
-                            <div class="col-md">
+                            <div class="col-md-6">
                                 <label class="mb-1">Date de prélèvement</label>
                                 <input type="date" class="form-control" id="datePrelevement" name="datePrelevement" value="" placeholder="Date de prélèvement" required>
                             </div>
+                            <div class="col-md-6 mt-2">
+                                <label class="mb-1">Biobanque</label>
+
+                                <select class="form-control" id="idBiobanque" name="idBiobanque" required>
+                                   <option selected disabled>Sélectionnez le nom du biobanque</option>
+                                    @foreach ( $biobanques as $biobanque )
+                                    <option value="{{$biobanque->id}}">{{$biobanque->nom}}</option>
+                                    <!-- Ajoutez autant d'options que nécessaire -->
+                                    @endforeach
+                                </select>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-6 mt-2">

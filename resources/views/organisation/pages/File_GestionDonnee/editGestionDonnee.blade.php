@@ -1,9 +1,9 @@
 <div class="modal fade" id="ModalEdit">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content ">
-             <form  action="{{ route('update-Echantillon') }}" data-toggle="validator" role="form" method="POST">
-               @csrf
-               @method('PUT')
+            <form action="{{ route('update-Echantillon') }}" data-toggle="validator" role="form" method="POST">
+                @csrf
+                @method('PUT')
 
                 <div class="modal-header py-1" style="background-color:#0b3544;">
                     <h4 class="modal-title text-white">Modification</h4>
@@ -13,10 +13,23 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
+                            <div class="col-md mt-2">
+                                <label class="mb-1">Biobanque</label>
+
+                                <select class="form-control" id="idBiobanque" name="idBiobanque" required>
+                                    <option selected disabled>Sélectionnez le nom du biobanque</option>
+                                    @foreach ( $biobanques as $biobanque )
+                                    <option value="{{$biobanque->id}}">{{$biobanque->nom}}</option>
+                                    <!-- Ajoutez autant d'options que nécessaire -->
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <label class="mb-1">Numéro d'identification</label>
                                 <input type="text" class="form-control" id="numeroIdentification" name="" value="" placeholder="Numéro d'identification" required disabled>
-                                <input type="hidden" id="id" name="id"   />
+                                <input type="hidden" id="id" name="id" />
                             </div>
                             <div class="col-md-6">
                                 <label class="mb-1">Date de prélèvement</label>
@@ -51,7 +64,7 @@
                                 <input type="text" class="form-control" id="conditionsPrelevement" name="conditionsPrelevement" value="" placeholder="Conditions de prélèvement" required>
                             </div>
                             <div class="col-md-6 mt-2">
-<label class="mb-1">Priorité d'urgence</label>
+                                <label class="mb-1">Priorité d'urgence</label>
                                 <input type="text" class="form-control" id="prioriteUrgence" name="prioriteUrgence" value="" placeholder="Priorité d'urgence" required>
                             </div>
                         </div>

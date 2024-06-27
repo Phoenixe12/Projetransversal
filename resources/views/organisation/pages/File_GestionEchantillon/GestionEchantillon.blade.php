@@ -52,6 +52,7 @@
                     <thead>
                         <tr>
                             <th data-field="numeroIdentification" data-sortable="true">Numéro Identification</th>
+                            <th data-field="nomBiobanque" data-sortable="true">Nom de la Biobanque</th>
                             <th data-field="datePrelevement" data-sortable="true">Date Prélèvement</th>
                             <th data-field="nomPatient" data-sortable="true">Nom Patient</th>
                             <th data-field="typeEchantillon" data-sortable="true">Type Échantillon</th>
