@@ -91,7 +91,6 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-
             </ul>
 
             <!-- Right navbar links -->
@@ -106,7 +105,7 @@
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <li class="dropdown-header">
 
-                            <span>Admin</span>
+                            <span>Laboratin</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -171,6 +170,16 @@
                                 </p>
                             </a>
                         </li>
+                          <li class="nav-item">
+                            <a href="{{ route('Gestion+BioBanque+Organisation.index') }}" class="nav-link ">
+                              <i class="nav-icon fas fa-building"></i>
+
+                                <p>
+                                  Biobanque
+                                </p>
+                            </a>
+
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('Gestion+Echantillon.index') }}" class="nav-link ">
                                <i class="nav-icon fas fa-folder"></i>
@@ -181,10 +190,10 @@
 
                         </li>
                          <li class="nav-item">
-                            <a href="{{ route('Gestion+BioBanque+Organisation.index') }}" class="nav-link ">
-                               <i class="nav-icon fas fa-folder"></i>
+                            <a href="#" class="nav-link ">
+                              <i class="nav-icon fa fa-user-circle mr-2" aria-hidden="true"></i>
                                 <p>
-                                  Biobanque
+                                  Mon profile
                                 </p>
                             </a>
 

@@ -4,7 +4,7 @@
 
 
                 <div class="modal-header py-1" style="background-color:#0b3544;">
-                    <h4 class="modal-title text-white">Modification</h4>
+                    <h4 class="modal-title text-white">Carte Map</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
                 </div>

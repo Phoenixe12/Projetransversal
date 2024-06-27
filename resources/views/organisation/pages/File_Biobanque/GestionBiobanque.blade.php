@@ -79,6 +79,8 @@
 
 
 @section('script')
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 <script>
     function actionFormatter(value, row, index) {
             return [
@@ -92,8 +94,21 @@
         window.actionEvents = {
             'click .editGestionSation': function(e, value, row, index) {
                 var id = row.id;
+                var longitude = row.longitude;
+                var latitude = row.latitude;
                 $('#ModalEdit').modal('show');
+ var map = L.map('map').setView([longitude, latitude], 13); // Centre de Paris, zoom 13
 
+        // Ajout des tuiles OpenStreetMap à la carte
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Ajout d'un marqueur à la position spécifiée
+        L.marker([longitude, latitude]).addTo(map)
+            .bindPopup('Paris, France')
+            .openPopup();
             }
         };
 
@@ -122,23 +137,8 @@
             params.success(res)
         })
     }
-
+ //res
 </script>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-        // Initialisation de la carte Leaflet
-        var map = L.map('map').setView([48.8566, 2.3522], 13); // Centre de Paris, zoom 13
 
-        // Ajout des tuiles OpenStreetMap à la carte
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Ajout d'un marqueur à la position spécifiée
-        L.marker([48.8566, 2.3522]).addTo(map)
-            .bindPopup('Paris, France')
-            .openPopup();
-    </script>
 @endsection
