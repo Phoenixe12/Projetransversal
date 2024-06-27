@@ -108,6 +108,11 @@
                 <i class="bi bi-archive"></i><span>Organisation</span>
             </a>
         </li><!-- End Facture Nav -->
+         <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('Gestion+BioBanque+Admin.index') }}">
+                <i class="bi bi-building-add"></i><span>Bio Banque</span>
+            </a>
+        </li><!-- End Messagerie Nav -->
         <li>
             <a class="nav-link collapsed" href="{{ route('Gestion+Country.index') }}">
                 <i class="bi bi-flag"></i><span>Pays</span>
@@ -120,14 +125,13 @@
             </a>
 
         </li><!-- End Messagerie Nav -->
+
+
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('Gestion+Compte.index') }}">
-                <i class="bi bi-building-add"></i><span>Compte</span>
+                <i class="bi bi-file-text"></i><span>Compte</span>
             </a>
-
         </li><!-- End Messagerie Nav -->
-
-
 
         <li class="nav-item">
             <a class="nav-link collapsed text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

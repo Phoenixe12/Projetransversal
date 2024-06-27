@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BioBanqueController;
 use App\Http\Controllers\Admin\CompteController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\EntrepriseController;
@@ -77,6 +78,13 @@ Route::middleware(['auth', 'user-role:admin'])->group(function () {
     Route::get('/Gestion+Country/edit/{id}', [CountryController::class, 'edit'])->name('gestionCountry.edit');
     Route::put('/update+Country', [CountryController::class, 'update'])->name('update-Country');
     Route::delete("/delete+Country", [CountryController::class, 'destroy'])->name('delete-Country');
+
+
+
+    Route::resource('/Gestion+BioBanque+Admin', BioBanqueController::class);
+    Route::get('/Gestion+BioBanque/edit/{id}', [BioBanqueController::class, 'edit'])->name('gestionBioBanque.edit');
+    Route::put('/update+BioBanque', [BioBanqueController::class, 'update'])->name('update-BioBanque');
+    Route::delete("/delete+BioBanque", [BioBanqueController::class, 'destroy'])->name('delete-BioBanque');
 
 
     Route::resource('/Information+Entreprise', ListeEntrepriseController::class);
