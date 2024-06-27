@@ -89,7 +89,7 @@ body {
 
 
 <!-- Modal HTML -->
-<form action="{{ route('delete-station') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('delete-Echantillon') }}" method="post" enctype="multipart/form-data">
 @csrf
     @method('DELETE')
 <div id="ModalDelete" class="modal fade">
@@ -105,7 +105,7 @@ body {
 			<div class="modal-body">
 				<p>Voulez-vous vraiment supprimer ces enregistrements ? Ce processus ne peut pas être annulé.</p>
 			</div>
-            <input type="hidden" id="deleteing_id" name="deleteStation">
+            <input type="hidden" id="deleteing_id" name="deleteEchantillon">
 			<div class="modal-footer justify-content-center">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 				<button type="submit" value="submit" class="btn btn-danger">Delete</button>

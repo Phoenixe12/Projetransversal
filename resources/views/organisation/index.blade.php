@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="header__top__right">
-                          
+
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="{{('accueil.index')}}">
+                        <a href="{{ route('accueil.index') }}">
                             <img src="{{ asset('assetss/dist/img/logo.png') }}" width="70px" height="70px" alt="">
                         </a>
                     </div>
@@ -80,7 +80,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active">
-                                    <a href="{{('accueil.index')}}">Accueil</a>
+                                    <a href="{{ route('accueil.index') }}">Accueil</a>
                                 </li>
                             </ul>
                         </nav>

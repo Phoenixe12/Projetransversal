@@ -28,7 +28,7 @@ class HomeController extends Controller
 
     public function editorHome()
     {
-        return view('home',["msg"=>"I am editor role"]);
+        return view('organisation.pages.File_GestionEchantillon.GestionEchantillon');
     }
 
     public function adminHome()

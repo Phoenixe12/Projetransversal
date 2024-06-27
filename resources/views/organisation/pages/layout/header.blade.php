@@ -77,7 +77,7 @@
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center ">
             <img class="animation__shake"
-                src="{{ asset('organisation/dist/img/pointvert-est-cadenas-a-code-bg0317_1-removebg-preview.png') }}"
+                src="{{ asset('assetss/dist/img/logo/logo.png') }}"
                 alt="AdminLTELogo" height="220" width="220">
         </div>
 
@@ -147,19 +147,14 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#0b3544;">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-                <img src="{{ asset('organisations/dist/img/logo.png') }}"
+                <img src="{{ asset('assetss/dist/img/logo/logo.png') }}"
                     alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">{{ auth()->user()->name }}</span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar" style="background-color:#0b3544;">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
-                    <div class="info">
-                        <a href="#" class="d-block fw-bold">eS-Fuel Management System</a>
-                    </div>
-                </div>
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview"
@@ -167,48 +162,21 @@
                         <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
+                            <a href="{{ route('home.editor') }}" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Dashboard
-                                    <i class="right fas fa-angle-left"></i>
+                                    Echantillons
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('home.admin') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Les échantillons</p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link ">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="{{ route('Gestion+Echantillon.index') }}" class="nav-link ">
+                               <i class="nav-icon fas fa-folder"></i>
                                 <p>
-                                    Pages
-                                    <i class="right fas fa-angle-left"></i>
+                                  Dossiers patients
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
 
-
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p></p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Gestion Statuts</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         <!--Fin de   -->
@@ -269,7 +237,7 @@
 
         <footer class="main-footer">
             <strong>Copyright &copy; 2023-2024 <a href="#"><img class="animation__shake"
-                        src="{{ asset('organisations/dist/img/logo.png') }}" alt="AdminLTELogo" height="80"
+                        src="{{ asset('assetss/dist/img/logo/logo.png') }}" alt="AdminLTELogo" height="80"
                         width="80" /></strong>
             All rights reserved.</a>
 
